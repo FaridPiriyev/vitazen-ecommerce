@@ -1,2 +1,0 @@
-# vitazen-ecommerce
-salam
