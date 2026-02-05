@@ -116,7 +116,7 @@ const faqs = [
   },
 ];
 
-const Counter = ({ value }) => {
+const Counter = ({ value }: { value: string | number }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   const [displayValue, setDisplayValue] = useState("0");
@@ -148,8 +148,8 @@ const Counter = ({ value }) => {
 };
 
 export default function AboutSection() {
-  const [prevEl, setPrevEl] = useState(null);
-  const [nextEl, setNextEl] = useState(null);
+  const [prevEl, setPrevEl] = useState<HTMLButtonElement | null>(null);
+  const [nextEl, setNextEl] = useState<HTMLButtonElement | null>(null);
 
   const stats = [
     { label: "HAPPY CUSTOMERS", value: 98 },

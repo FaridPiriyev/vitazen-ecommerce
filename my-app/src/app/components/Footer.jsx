@@ -7,6 +7,23 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 import { HiOutlineArrowLongRight } from "react-icons/hi2";
+import Link from "next/link";
+
+const usefulLinks = [
+  "My Account",
+  "Shopping cart",
+  "Wishlist",
+  "Custom Link",
+  "Help",
+];
+
+const informationLinks = [
+  "Shipping & Returns",
+  "Secure Shopping",
+  "Affiliates",
+  "International Shipping",
+  "Contact",
+];
 
 export default function Footer() {
   return (
@@ -18,14 +35,16 @@ export default function Footer() {
               <span className="text-[#5AB9E6] font-bold text-xl">V</span>
             </div>
             <div className="relative w-[150px]">
-              <Image
-                src="/logo2.avif"
-                alt="Shop logo"
-                width={120}
-                height={120}
-                className="object-contain brightness-0 invert"
-                priority
-              />
+              <Link href="/">
+                <Image
+                  src="/logo2.avif"
+                  alt="Shop logo"
+                  width={120}
+                  height={120}
+                  className="object-contain brightness-0 invert cursor-pointer"
+                  priority
+                />
+              </Link>
             </div>
           </div>
           <p className="text-white/90 leading-relaxed text-sm">
@@ -132,7 +151,6 @@ export default function Footer() {
               </svg>
             </li>
 
-            
             <li className="flex items-center">
               <svg
                 className="h-6 w-auto"
@@ -308,17 +326,13 @@ export default function Footer() {
             </li>
           </ul>
 
-          <div className="text-gray-500 text-sm">
+          <div className="text-gray-500 text-md">
             © 2026, <span className="text-red-400">♡</span> Designed By
-            Team90degree
+            Farid Piriyev
           </div>
 
           <div className="flex items-center gap-3">
-            <select className="bg-transparent border border-gray-200 rounded px-2 py-1 text-xs text-gray-600 outline-none">
-              <option>USD $</option>
-              <option>EUR €</option>
-            </select>
-            <select className="bg-transparent border border-gray-200 rounded px-2 py-1 text-xs text-gray-600 outline-none uppercase">
+            <select className="bg-transparent border border-gray-200 rounded px-2 py-1 text-sm text-gray-600 outline-none uppercase">
               <option>English</option>
               <option>Spanish</option>
             </select>

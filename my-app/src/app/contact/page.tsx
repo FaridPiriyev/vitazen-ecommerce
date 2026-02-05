@@ -1,3 +1,4 @@
+
 import { FaPaperPlane } from "react-icons/fa";
 import Navbar from "../components/Navbar";
 import Header from "../components/Header";
@@ -31,7 +32,7 @@ export default function ContactPage() {
                     {label === "Message" ? (
                       <textarea
                         className="w-full bg-transparent border-b border-gray-300 py-2 focus:border-sky-400 outline-none transition-all resize-none"
-                        rows="3"
+                        rows={3}
                       />
                     ) : (
                       <input
@@ -84,7 +85,7 @@ export default function ContactPage() {
 
           <div className="w-full h-[500px] rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-white">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2034.7816003204484!2d18.062438!3d59.332578!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f9d60742f5341%3A0x6e26177894a8647e!2zRHLDtnR0bmluZ2dhdGFuLCAxMTEgNTEgU3RvY2tob2xtLCBTd2VkZW4!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2035.1321598444747!2d18.06401917743603!3d59.33010187461327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f9d5e30537f5d%3A0x6a2c354e5a953a7b!2sDrottninggatan%201%2C%20111%2051%20Stockholm%2C%20Sweden!5e0!3m2!1sen!2saz!4v1700000000000!5m2!1sen!2saz"
               width="100%"
               height="100%"
               style={{ border: 0 }}

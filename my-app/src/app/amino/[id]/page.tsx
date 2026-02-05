@@ -163,7 +163,7 @@ export default function ProductDetailPage() {
   const [quantity, setQuantity] = useState(1);
   const [selectedColor, setSelectedColor] = useState(product.color);
   const [selectedWeight, setSelectedWeight] = useState(product.weight);
-  const [openSection, setOpenSection] = useState("desc");
+  const [openSection, setOpenSection] = useState<string | null>("desc");
   const [activeImage, setActiveImage] = useState(product.image);
 
   useEffect(() => {
@@ -172,8 +172,10 @@ export default function ProductDetailPage() {
     setSelectedWeight(product.weight);
   }, [product]);
 
-  const toggleSection = (section) => {
-    setOpenSection(openSection === section ? null : section);
+  const toggleSection = (section: string) => {
+    setOpenSection((prev: string | null) =>
+      prev === section ? null : section,
+    );
   };
 
   const { addToCart } = useCart();
@@ -553,8 +555,8 @@ export default function ProductDetailPage() {
                     >
                       <stop stopColor="#F58720"></stop>
                       <stop offset=".359" stopColor="#E16F27"></stop>
-                      <stop offset=".703" stopColorColor="#D4602C"></stop>
-                      <stop offset=".982" stopColorColor="#D05B2E"></stop>
+                      <stop offset=".703" stopColor="#D4602C"></stop>
+                      <stop offset=".982" stopColor="#D05B2E"></stop>
                     </linearGradient>
                   </defs>
                 </svg>

@@ -76,8 +76,8 @@ const faqs = [
 ];
 
 export default function AboutSection() {
-  const [prevEl, setPrevEl] = useState(null);
-  const [nextEl, setNextEl] = useState(null);
+  const [prevEl, setPrevEl] = useState<HTMLButtonElement | null>(null);
+  const [nextEl, setNextEl] = useState<HTMLButtonElement | null>(null);
 
   return (
     <>
