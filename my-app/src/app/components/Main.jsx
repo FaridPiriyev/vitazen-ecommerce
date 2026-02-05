@@ -23,6 +23,30 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
+const slidesData = [
+  {
+    id: 1,
+    img: "/img/slider1.jpg",
+    subtitle: "Daily Wellness",
+    title: "Support Your Health & Vitality",
+    link: "/multivitamins",
+  },
+  {
+    id: 2,
+    img: "/img/slider2.jpg",
+    subtitle: "Vitamin C Bottle",
+    title: "Nourish Body Supplements",
+    link: "/multivitamins",
+  },
+  {
+    id: 3,
+    img: "/img/slider3.jpg",
+    subtitle: "Targeted Nutrition",
+    title: "Formulas For Your Health",
+    link: "/multivitamins",
+  },
+];
+
 const categories = [
   {
     id: 1,
@@ -562,16 +586,16 @@ export default function Main() {
             loop={true}
             autoplay={{ delay: 5000, disableOnInteraction: false }}
             pagination={{ clickable: true }}
-            navigation={{ nextEl: ".hero-next-btn", prevEl: ".hero-prev-bFtn" }}
+            navigation={{ nextEl: ".hero-next-btn", prevEl: ".hero-prev-btn" }}
             modules={[Parallax, Pagination, Navigation, Autoplay]}
             className="mySwiper h-full w-full absolute"
           >
-            {[1, 2, 3].map((num) => (
-              <SwiperSlide key={num}>
+            {slidesData.map((slide) => (
+              <SwiperSlide key={slide.id}>
                 <div className="relative w-full h-full flex items-center">
                   <img
-                    src={`/img/slider${num}.jpg`}
-                    alt={`Slider ${num}`}
+                    src={slide.img}
+                    alt={slide.title}
                     className="absolute inset-0 w-full h-full object-cover"
                   />
 
@@ -581,16 +605,21 @@ export default function Main() {
                         className="tracking-[0.3em] uppercase text-base mb-4 block"
                         data-swiper-parallax="-300"
                       >
-                        Targeted Nutrition
+                        {slide.subtitle}
                       </h3>
                       <h2
                         className="text-5xl md:text-7xl font-serif leading-tight mb-8 font-bold"
                         data-swiper-parallax="-400"
                       >
-                        Formulas For <br />{" "}
-                        <span className="font-bold">Your Health.</span>
+                        {slide.title.split(".").map((text, i) => (
+                          <span key={i}>
+                            {text}
+                            {i === 0 ? "." : ""}
+                            <br />
+                          </span>
+                        ))}
                       </h2>
-                      <Link href="/multivitamins">
+                      <Link href={slide.link}>
                         <button className="bg-[#51ADE5] hover:bg-[#4596c7] text-white px-8 py-3 rounded-md flex items-center gap-2 transition-all uppercase font-bold text-sm tracking-wider cursor-pointer border-none">
                           Shop Now <FiArrowUpRight className="text-2xl" />
                         </button>
@@ -601,6 +630,7 @@ export default function Main() {
               </SwiperSlide>
             ))}
           </Swiper>
+
           <button className="hero-prev-btn absolute left-6 top-1/2 -translate-y-1/2 z-[30] w-12 h-12 flex items-center justify-center rounded-full bg-black text-white opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-black/80 cursor-pointer border-none">
             <FaChevronLeft size={14} />
           </button>
